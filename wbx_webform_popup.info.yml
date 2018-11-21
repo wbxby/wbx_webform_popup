@@ -1,0 +1,5 @@
+name: 'WBX Webform Popup'
+type: module
+description: 'Loads webforms in popups by ajax.'
+core: 8.x
+package: 'Webxayc'

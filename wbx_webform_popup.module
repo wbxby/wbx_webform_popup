@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains wbx_webform_popup.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function wbx_webform_popup_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the wbx_webform_popup module.
+    case 'help.page.wbx_webform_popup':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Loads webforms in popups by ajax.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

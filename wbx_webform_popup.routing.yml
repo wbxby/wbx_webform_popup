@@ -1,0 +1,8 @@
+
+wbx_webform_popup.webform_popup_controller_hello:
+  path: '/webform_popup/{id}/{ajax}'
+  defaults:
+    _controller: '\Drupal\wbx_webform_popup\Controller\WebformPopupController::load'
+    _title: 'Webform Popup'
+  requirements:
+    _permission: 'access content'
