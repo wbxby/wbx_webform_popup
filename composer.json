@@ -1,0 +1,9 @@
+{
+  "name": "wbxby/wbx_webform_popup",
+  "type": "drupal-module",
+  "description": "Provides popups for webforms",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",  
+  "minimum-stability": "dev", 
+  "require": { }
+}
