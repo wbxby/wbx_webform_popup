@@ -56,6 +56,7 @@ class WebformPopupController extends ControllerBase {
     $this->webformStorage = $entityTypeManager->getStorage('webform');
     $this->viewBuilder = $entityTypeManager->getViewBuilder('webform');
     $this->requestStack = $requestStack;
+    $this->entityTypeManager = $entityTypeManager;
   }
 
   /**
@@ -89,7 +90,14 @@ class WebformPopupController extends ControllerBase {
       if (strpos($name, 'fill_') !== FALSE) {
         $field = str_replace('fill_', '', $name);
         if (isset($view['elements'][$field])) {
-          $view['elements'][$field]['#value'] = $parameter;
+          // Handle product fill.
+          if ($field === 'product') {
+            $product = $this->entityTypeManager->getStorage('commerce_product')->load($parameter);
+            $view['elements'][$field]['#value'] = $product->label() . ' (' . $parameter . ')';
+            $view['elements'][$field]['#original_product_id'] = $parameter;
+          } else {
+            $view['elements'][$field]['#value'] = $parameter;
+          }
         }
       }
     }
