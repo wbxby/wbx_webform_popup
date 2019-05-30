@@ -109,6 +109,9 @@ class WebformPopupController extends ControllerBase {
     $output .= $this->renderer->renderRoot($view);
     $output .= '</div></div>';
     $settings = $view['#attached']['drupalSettings'];
+    if (isset($view['#attached']['library'])) {
+      $response->addAttachments(['library' => $view['#attached']['library']]);
+    }
     $response->addCommand(new SettingsCommand($settings, TRUE));
     $response->addCommand(new AppendCommand($wrapper, $output));
     return $response;
