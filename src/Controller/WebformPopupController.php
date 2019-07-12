@@ -106,8 +106,9 @@ class WebformPopupController extends ControllerBase {
     }
     $response = new AjaxResponse();
     $output = '<div class="popup-overlay"><div class="popup-wrapper"><div class="popup-close"><i class="icon-close"></i></div>';
+    $output .= '<div id="webform-popup-content">';
     $output .= $this->renderer->renderRoot($view);
-    $output .= '</div></div>';
+    $output .= '</div></div></div>';
     $settings = $view['#attached']['drupalSettings'];
     if (isset($view['#attached']['library'])) {
       $response->addAttachments(['library' => $view['#attached']['library']]);
